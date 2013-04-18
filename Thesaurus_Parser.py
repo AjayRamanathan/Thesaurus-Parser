@@ -5,9 +5,14 @@ import urllib2, re, time
 
 
 def main() :
-
+  
+  global log_file
   global text_file
+  log_file = open("Output.log", "a")
   text_file = open("Output.txt", "a")
+  
+  
+  log_file.write("Start of Thesaurus_Parser")
   
   text_file.write("-----------------START---------------------")
   text_file.write("\n")
@@ -20,7 +25,10 @@ def main() :
   text_file.write("-----------------END---------------------")
   text_file.close()
   print("Done")
-  print(time.time() - start_time, "seconds")
+  time = time.time() - start_time, "seconds"
+  log_file.write("End of Thesaurus_Parser")
+  log_file.write("Runtime is %s seconds"%time)
+  log_file.close()
 
 def thesaurus_parser() :
 
