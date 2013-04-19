@@ -14,7 +14,8 @@ def main() :
   
   log_file.write("Start of Thesaurus_Parser")
   
-  text_file.write("-----------------START---------------------")
+  text_file.write("Thesaurus Parser")
+  #text_file.write("-----------------START---------------------")
   text_file.write("\n")
   text_file.write("\n")
   
@@ -22,12 +23,11 @@ def main() :
   
   thesaurus_parser()
   
-  text_file.write("-----------------END---------------------")
   text_file.close()
   print("Done")
-  time = time.time() - start_time, "seconds"
+  seconds = time.time() - start_time, "seconds"
   log_file.write("End of Thesaurus_Parser")
-  log_file.write("Runtime is %s seconds"%time)
+  log_file.write("Runtime is %s seconds"%seconds)
   log_file.close()
 
 def thesaurus_parser() :
@@ -36,7 +36,10 @@ def thesaurus_parser() :
   for each_letter in alphabet_range :
     alphabetical_link = "http://www.thesaurus.com/list/%s" %each_letter
     alphabetical_parser(alphabetical_link)
-
+    text_file.write("Letter %s (http://www.thesaurus.com/list/%s)"%each_letter %each_letter)
+    text_file.write("\n")
+    text_file.write("\n")
+    
 def alphabetical_parser(alphabetical_link) :
   
   opener = urllib2.build_opener()
@@ -51,11 +54,10 @@ def alphabetical_parser(alphabetical_link) :
     
   text_file.write("\n")
   text_file.write("\n")
-  text_file.write("-----------------END OF AN AlPHABET---------------------")
-  text_file.write("\n")
-  text_file.write("\n")
-  text_file.write("\n")
-  
+  #text_file.write("-----------------END OF AN AlPHABET---------------------")
+  #text_file.write("\n")
+  #text_file.write("\n")
+    
 def section_parser(section_link) :
   
   opener = urllib2.build_opener()
