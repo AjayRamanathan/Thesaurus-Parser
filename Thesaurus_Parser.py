@@ -35,10 +35,11 @@ def thesaurus_parser() :
   alphabet_range = map(chr, range(97, 123))
   for each_letter in alphabet_range :
     alphabetical_link = "http://www.thesaurus.com/list/%s" %each_letter
+    text_file.write("Letter %s )"%each_letter )
+    text_file.write("\n")
+    text_file.write("\n")
     alphabetical_parser(alphabetical_link)
-    text_file.write("Letter %s (http://www.thesaurus.com/list/%s)"%each_letter %each_letter)
-    text_file.write("\n")
-    text_file.write("\n")
+    
     
 def alphabetical_parser(alphabetical_link) :
   
