@@ -5,26 +5,18 @@ import urllib2, re, time
 
 
 def main() :
-  
-  global log_file
   global text_file
-  log_file = open("Output.log", "a")
-  text_file = open("Output.txt", "a")
+  global log_file
   
+  log_file = open("Output.log", "a")
   
   log_file.write("Start of Thesaurus_Parser")
-  
-  text_file.write("Thesaurus Parser")
-  #text_file.write("-----------------START---------------------")
-  text_file.write("\n")
-  text_file.write("\n")
-  
+    
   start_time = time.time()
   
   thesaurus_parser()
-  
-  text_file.close()
-  print("Done")
+   
+  print("All Done")
   seconds = time.time() - start_time, "seconds"
   log_file.write("End of Thesaurus_Parser")
   log_file.write("Runtime is %s seconds"%seconds)
@@ -35,10 +27,13 @@ def thesaurus_parser() :
   alphabet_range = map(chr, range(97, 123))
   for each_letter in alphabet_range :
     alphabetical_link = "http://www.thesaurus.com/list/%s" %each_letter
+    text_file = open("%s.txt"%each_letter, "a")
     text_file.write("Letter %s )"%each_letter )
     text_file.write("\n")
     text_file.write("\n")
     alphabetical_parser(alphabetical_link)
+    text_file.close()
+    print ("Parsed Letter %s" %each_letter)
     
     
 def alphabetical_parser(alphabetical_link) :
@@ -52,13 +47,7 @@ def alphabetical_parser(alphabetical_link) :
   for link in alphabetical_soup.find_all("a", "result_link"):
     section_link = link.get("href")
     section_parser(section_link)
-    
-  text_file.write("\n")
-  text_file.write("\n")
-  #text_file.write("-----------------END OF AN AlPHABET---------------------")
-  #text_file.write("\n")
-  #text_file.write("\n")
-    
+   
 def section_parser(section_link) :
   
   opener = urllib2.build_opener()
