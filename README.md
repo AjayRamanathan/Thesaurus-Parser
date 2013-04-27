@@ -1,4 +1,4 @@
 Thesaurus-Parser
 ================
 
-Pyhton based parser for thesaurus website
+Python based parser for thesaurus website
